@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7bf9b2eb.css",
+    "main.js": "/static/js/main.cf99d79c.js",
+    "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
+    "static/media/via lattea.webp": "/static/media/via lattea.be6269ba110fa79b5f04.webp",
+    "index.html": "/index.html",
+    "main.7bf9b2eb.css.map": "/static/css/main.7bf9b2eb.css.map",
+    "main.cf99d79c.js.map": "/static/js/main.cf99d79c.js.map",
+    "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7bf9b2eb.css",
+    "static/js/main.cf99d79c.js"
+  ]
+}
