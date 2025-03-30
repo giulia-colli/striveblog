@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/Users");
+const mailer = require("../utils/mailer") ; // Importa il mailer
 
 //GET
 router.get("/", async (req, res) => {
@@ -29,8 +30,25 @@ router.post("/register", async (req, res) => {
         // Non inviare la password nella risposta
         const userWithoutPassword = newUser.toObject();
         delete userWithoutPassword.password;
-        
+
+        // Invia email di benvenuto
+        const mailOptions = {
+            from: process.env.MAIL_USER,
+            to: email,
+            subject: "Benvenuto!",
+            text: `Ciao ${firstName},\n\nGrazie per esserti registrato alla nostra piattaforma!`
+        };
+
+        mailer.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error("Errore durante l'invio dell'email:", error);
+            } else {
+                console.log("Email inviata:", info.response);
+            }
+        });
+
         res.status(201).json(userWithoutPassword);
+       
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

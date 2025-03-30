@@ -11,12 +11,14 @@ import Profile from './pages/Profile';
 import PostDetails from './pages/PostDetails';
 import EditPost from './pages/EditPost';
 import ProtectedRoute from './components/ProtectedRoute';
+import './App.css';
 
 function App() {
   return (
     <Router>
       <AuthProvider>
         <NavBar />
+        <div className="app-background">
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -47,6 +49,7 @@ function App() {
             } />
           </Routes>
         </Container>
+        </div>
       </AuthProvider>
     </Router>
   );

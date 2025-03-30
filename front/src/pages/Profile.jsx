@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 
 const Profile = () => {
-  const { user, login } = useAuth();
+  const { user, login, logout } = useAuth(); // Aggiunto logout per gestire la disconnessione
   const [formData, setFormData] = useState({
     firstName: user?.firstName || '',
     lastName: user?.lastName || '',
@@ -52,6 +52,20 @@ const Profile = () => {
     } catch (err) {
       setError(err.response?.data?.message || 'Errore durante aggiornamento del profilo');
       setSuccess('');
+    }
+  };
+
+  const handleDeleteProfile = async () => {
+    if (!window.confirm('Sei sicuro di voler eliminare il tuo profilo?')) {
+      return;
+    }
+
+    try {
+      await axios.delete(`http://localhost:3100/users/${user._id}`);
+      logout(); // Disconnette l'utente dopo l'eliminazione
+      alert('Profilo eliminato con successo');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Errore durante l\'eliminazione del profilo');
     }
   };
 
@@ -131,6 +145,14 @@ const Profile = () => {
               Aggiorna Profilo
             </Button>
           </Form>
+
+          <Button
+            variant="danger"
+            className="w-100 mt-3"
+            onClick={handleDeleteProfile}
+          >
+            Elimina Profilo
+          </Button>
         </Col>
       </Row>
     </Container>

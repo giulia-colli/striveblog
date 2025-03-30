@@ -1,6 +1,7 @@
 import { Navbar, Container, Nav, NavDropdown, Image } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import '../Navbar.css';
 
 const NavBar = () => {
   const { user, logout } = useAuth();
@@ -16,7 +17,7 @@ const NavBar = () => {
 
 
   return (
-    <Navbar bg="light" expand="lg" className="mb-4">
+    <Navbar  expand="lg" className="mb-4 navbar-glass fixed-top">
       <Container>
         <Navbar.Brand as={Link} to="/">Blog</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
