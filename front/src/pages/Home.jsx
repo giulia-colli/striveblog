@@ -14,7 +14,7 @@ const Home = () => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:3100/posts?page=${currentPage}&limit=6`);
+        const response = await axios.get(`https://striveblog-7rn9.onrender.com/posts?page=${currentPage}&limit=6`);
         setPosts(response.data.posts);
         setTotalPages(response.data.totalPages);
         setError(null);

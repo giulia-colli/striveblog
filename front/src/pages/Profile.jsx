@@ -31,7 +31,7 @@ const Profile = () => {
         return;
       }
 
-      const response = await axios.put(`http://localhost:3100/users/${user._id}`, {
+      const response = await axios.put(`https://striveblog-7rn9.onrender.com/users/${user._id}`, {
         firstName: formData.firstName,
         lastName: formData.lastName,
         currentPassword: formData.currentPassword,
@@ -61,7 +61,7 @@ const Profile = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:3100/users/${user._id}`);
+      await axios.delete(`https://striveblog-7rn9.onrender.com/users/${user._id}`);
       logout(); // Disconnette l'utente dopo l'eliminazione
       alert('Profilo eliminato con successo');
     } catch (err) {

@@ -26,7 +26,7 @@ const EditPost = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await axios.get(`http://localhost:3100/posts/${id}`);
+                const response = await axios.get(`https://striveblog-7rn9.onrender.com/posts/${id}`);
                 const post = response.data;
                 
                 if (post.author._id !== user._id) {
@@ -78,7 +78,7 @@ const EditPost = () => {
             }
 
             const response = await axios.put(
-                `http://localhost:3100/posts/${id}`, 
+                `https://striveblog-7rn9.onrender.com/posts/${id}`, 
                 formDataToSend,
                 {
                     headers: {

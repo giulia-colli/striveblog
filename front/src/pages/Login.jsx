@@ -45,7 +45,7 @@ const Login = () => {
         }
     }, [login, navigate]);
     const handleGoogleLogin = () => {
-        window.location.href = 'http://localhost:3100/auth/google';
+        window.location.href = 'https://striveblog-7rn9.onrender.com/auth/google';
     }
     
     return (

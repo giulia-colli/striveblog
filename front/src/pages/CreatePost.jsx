@@ -55,7 +55,7 @@ const CreatePost = () => {
             formDataToSend.append('cover', coverImage);
 
             const response = await axios.post(
-                "http://localhost:3100/posts",
+                "https://striveblog-7rn9.onrender.com/posts",
                 formDataToSend,
                 {
                     headers: {

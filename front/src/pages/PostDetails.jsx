@@ -17,7 +17,7 @@ const PostDetails = () => {
         const fetchPost = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`http://localhost:3100/posts/${id}`);
+                const response = await axios.get(`https://striveblog-7rn9.onrender.com/posts/${id}`);
                 setPost(response.data);
                 setError(null);
             } catch (error) {
@@ -33,7 +33,7 @@ const PostDetails = () => {
     const handleDelete = async () => {
         if (window.confirm('Sei sicuro di voler eliminare questo post?')) {
             try {
-                await axios.delete(`http://localhost:3100/posts/${id}`);
+                await axios.delete(`https://striveblog-7rn9.onrender.com/posts/${id}`);
                 navigate('/my-posts');
             } catch (err) {
                 setError('Errore durante l\'eliminazione del post');

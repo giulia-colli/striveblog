@@ -55,7 +55,7 @@ passport.use (new LocalStrategy(
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL:                                                       'http://localhost:3100/auth/google/callback'
+    callbackURL:                                                       'https://striveblog-7rn9.onrender.com/auth/google/callback'
 }, async(accessToken, refreshToken, profile, done) => {
     try {
         let user = await User.findOne({ googleId: profile.id });

@@ -11,7 +11,7 @@ const Comments = ({ postId }) => {
 
     const fetchComments = async () => {
         try {
-            const response = await axios.get(`http://localhost:3100/comments/post/${postId}`);
+            const response = await axios.get(`https://striveblog-7rn9.onrender.com/comments/post/${postId}`);
             setComments(response.data);
         } catch (err) {
             setError('Errore nel caricamento dei commenti');
@@ -25,7 +25,7 @@ const Comments = ({ postId }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3100/comments', {
+            const response = await axios.post('https://striveblog-7rn9.onrender.com/comments', {
                 content: newComment,
                 author: user._id,
                 post: postId
@@ -40,7 +40,7 @@ const Comments = ({ postId }) => {
 
     const handleDelete = async (commentId) => {
         try {
-            await axios.delete(`http://localhost:3100/comments/${commentId}`);
+            await axios.delete(`https://striveblog-7rn9.onrender.com/comments/${commentId}`);
             setComments(comments.filter(comment => comment._id !== commentId));
         } catch (err) {
             setError('Errore durante l\'eliminazione del commento');
