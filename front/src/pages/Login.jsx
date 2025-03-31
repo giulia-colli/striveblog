@@ -15,7 +15,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('/auth/login/local', { email, password });
+            const response = await api.post('/login/local', { email, password });
             const { user, token } = response.data;
             login(user, token);
             navigate('/');
@@ -31,7 +31,7 @@ const Login = () => {
         
         if (token) {
             try {
-                api.get('/auth/me', {
+                api.get('/me', {
                     headers: { Authorization: `Bearer ${token}` }
                 }).then(response => {
                     login(response.data.user, token);

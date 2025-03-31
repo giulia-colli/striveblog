@@ -1,13 +1,5 @@
 import {useState} from 'react';
-import {
-    Form,
-    Button,
-    Container,
-    Row,
-    Col,
-    Alert,
-    Card
-} from 'react-bootstrap';
+import {Form, Button, Container, Row, Col, Alert, Card } from 'react-bootstrap';
 import {useNavigate, Link} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
 import api from '../utils/api';
@@ -37,7 +29,7 @@ const Register = () => {
         }
 
         try {
-            const response = await api.post('/auth/register', {
+            const response = await api.post('/register', {
                 firstName: formData.firstName,
                 lastName: formData.lastName,
                 email: formData.email,
